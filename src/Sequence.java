@@ -107,10 +107,10 @@ public class Sequence <T>{
 	}
 	
 	//Returns a clone of this object
-	@SuppressWarnings("unchecked")
 	public Sequence<T> clone(){
 		Sequence<T> clone;
-		 return clone = this;
+		clone = this;
+		 return clone;
 	}
 	
 	//Returns the size of this Sequence's list

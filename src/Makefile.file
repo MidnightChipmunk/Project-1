@@ -1,6 +1,3 @@
-# To run, enter
-# make all
- 
 all: diningphilosophers
  
 diningphilosophers: main.o dining.o eating.o thinking.o philosopher.o

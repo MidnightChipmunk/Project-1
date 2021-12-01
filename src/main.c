@@ -10,6 +10,7 @@
 
 pthread_t tid[PHILOSOPHER_NUM];
 pthread_t terminator;
+boolean terminate_flag = false;
 
 int meals_eaten;
 
@@ -76,7 +77,7 @@ void* philosopher(void* phil) {
 	int sleep_time;
 	int loop_count = 0;
 
-	while (loop_count < MAX_MEALS) {
+	while (loop_count < MAX_MEALS && terminate_flag != true) {
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 
@@ -101,10 +102,7 @@ void* terminator_t(void* sleept) {
 	int* num = (int*)sleept;
 	int term_sleep = *num;
 	sleep(term_sleep);
-
-	for (i = 0; i < PHILOSOPHER_NUM; i++) {
-		pthread_join(tid[i], NULL);
-	}
+	terminate_flag = true;
 }
 
 void init(){

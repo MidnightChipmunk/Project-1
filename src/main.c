@@ -77,7 +77,7 @@ void* philosopher(void* phil) {
 	int sleep_time;
 	int loop_count = 0;
 
-	while (loop_count < MAX_MEALS && terminate_flag != true) {
+	while (loop_count < MAX_MEALS && terminate_flag != 1) {
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 

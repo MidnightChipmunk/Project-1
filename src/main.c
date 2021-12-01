@@ -7,12 +7,12 @@ pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;
 double MAX_EAT_THINK_SLEEP = 10;
 
-void eating(int sleep) {
-	sleep(sleep);
+void eating(int sleept) {
+	sleep(sleept);
 }
 
-void thinking(int sleep) {
-	sleep(sleep);
+void thinking(int sleept) {
+	sleep(sleept);
 }
 
 int get_left(int phil) {
@@ -70,13 +70,13 @@ void* philosopher(void* phil) {
 	int meals_eaten = 0;
 
 	while (loop_count < 5) {
-		sleep_time = (int)((random() % MAX_THINK_EAT_SLEEP) + 1);
+		sleep_time = (int)((random() % MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 
 		pickup_sticks(phil_id);
 
 		printf("Philsopher %d is eating\n", phil_id);
-		sleep_time = (int)((randon() % MAX_THINK_EAT_SLEEP) + 1);
+		sleep_time = (int)((randon() % MAX_EAT_THINK_SLEEP) + 1);
 		eating(sleep_time);
 		meals_eaten++;
 

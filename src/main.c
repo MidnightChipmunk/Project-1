@@ -83,7 +83,7 @@ void* philosopher(void* phil) {
 
 		if (terminate_flag == 1) {
 			printf("Philosopher %d is being thrown out :(\n", phil_id);
-			printf("Philosopher %d ate: %d meals", phil_id, meals_eaten);
+			printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
 			break;
 		}
 
@@ -96,7 +96,7 @@ void* philosopher(void* phil) {
 
 		if (terminate_flag == 1) {
 			printf("Philosopher %d is being thrown out :(\n", phil_id);
-			printf("Philosopher %d ate: %d meals", phil_id, meals_eaten);
+			printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
 			break;
 		}
 
@@ -106,7 +106,7 @@ void* philosopher(void* phil) {
 		loop_count++;
 		if (loop_count >= MAX_MEALS) {
 			printf("Philosopher %d is full.\n", phil_id);
-			printf("Philosopher %d ate: %d meals", phil_id, meals_eaten);
+			printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
 		}
 
 	}

@@ -10,7 +10,7 @@
 
 pthread_t tid[PHILOSOPHER_NUM];
 pthread_t terminator;
-boolean terminate_flag = false;
+bool terminate_flag = false;
 
 int meals_eaten;
 

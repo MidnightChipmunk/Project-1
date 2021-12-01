@@ -1,7 +1,10 @@
 #include <pthread.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <time.h>
 #include "main.h"
+
+#define _GNU_SOURCE
 
 pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;

@@ -90,6 +90,8 @@ void* philosopher(void* phil) {
 		return_sticks(phil_id);
 
 		loop_count++;
+		if (loop_count >= MAX_MEALS)
+			printf("Philosopher %d is done\n", phil_id);
 	}
 }
 

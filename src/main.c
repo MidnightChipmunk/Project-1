@@ -24,11 +24,11 @@ int get_left(int phil) {
 }
 
 int get_right(int phil) {
-	if (phil == PHILOSOPHER_NUM - 1) {
+	if (phil == PHILOSOPHER_NUM - 1) 
 		return 0;
 	else
 		return phil + 1;
-	}
+
 }
 
 void can_eat(int phil) {

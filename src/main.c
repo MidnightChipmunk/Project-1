@@ -65,6 +65,8 @@ void return_sticks(int phil) {
 	state[phil] = THINKING;
 	can_eat(get_left(phil));
 	can_eat(get_right(phil));
+
+	pthread_mutex_unlock(&mutex_lock);
 }
 
 void* philosopher(void* phil) {

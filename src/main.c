@@ -140,7 +140,6 @@ void create_philosopher()
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_create(&tid[i], 0, philosopher, (void *)&thread_id[i]);
-		complete[i] = 0;
 	}
 
 	pthread_create(&terminator, 0, terminator_t, (void*)&terminator_id);

@@ -10,7 +10,7 @@
 
 pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;
-double MAX_EAT_THINK_SLEEP = 10;
+double MAX_EAT_THINK_SLEEP = 1.0;
 
 void thinking(int sleept) {
 	sleep(sleept);
@@ -68,7 +68,6 @@ void return_sticks(int phil) {
 }
 
 void* philosopher(void* phil) {
-	printf("phil run");
 	int *num = (int*)phil;
 	int phil_id = *num;
 	int sleep_time;
@@ -93,7 +92,6 @@ void* philosopher(void* phil) {
 }
 
 void init(){
-	printf("init");
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		state[i] = THINKING;
@@ -106,7 +104,6 @@ void init(){
 
 void create_philosopher()
 {
-	printf("create phil");
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_create(&tid[i], 0, philosopher, (void *)&thread_id[i]);
@@ -115,13 +112,17 @@ void create_philosopher()
 
 int main(int argc, char* argv[]) {
 	int i;
-	MAX_EAT_THINK_SLEEP = 10;
+	double sleepy;
+
+	printf("Enter a run time (in seconds): ");
+	scanf("%f", &sleepy);
+
+	MAX_EAT_THINK_SLEEP = sleepy;
 
 	init();
 	create_philosopher();
 
-	printf("After init and create phil");
-	sleep(atoi(argv[2]));
+	sleep(10);
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);
 	}

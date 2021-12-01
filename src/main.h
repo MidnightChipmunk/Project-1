@@ -3,7 +3,6 @@
 #define PHILOSOPHER_NUM 5
 #define MAX_MEALS 10
 
-
 enum{THINKING, HUNGRY, EATING} state[PHILOSOPHER_NUM];
 int thread_id[PHILOSOPHER_NUM];
 

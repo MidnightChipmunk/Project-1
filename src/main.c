@@ -18,7 +18,8 @@ void thinking(int sleep) {
 int get_left(int phil) {
 	if (phil == 0) {
 		return PHILOSOPHER_NUM - 1;
-	else
+	}
+	else{
 		return phil - 1;
 	}
 }
@@ -34,7 +35,7 @@ int get_right(int phil) {
 }
 
 void can_eat(int phil) {
-	if ((state[get_left(phil) != EATING) && (state[phil] == HUNGRY) && (state[get_right(phil)] != EATING)) {
+	if ((state[get_left(phil)] != EATING) && (state[phil] == HUNGRY) && (state[get_right(phil)] != EATING)) {
 		state[phil] = EATING;
 		pthred_cond_signal(&phil_cond[phil]);
 	}

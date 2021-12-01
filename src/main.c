@@ -108,7 +108,7 @@ void create_philosopher()
 {
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
-		pthread_create(tid[i], 0, philosopher, (void*)thread_id[i]);
+		pthread_create((int)tid[i], 0, philosopher, (void *)thread_id[i]);
 	}
 }
 
@@ -119,11 +119,9 @@ int main(int argc, char* argv[]) {
 	init();
 	create_philosopher();
 
-	sleep(argv[2]);
+	sleep(stoi(argv[2]));
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);
 	}
-
-	sleep();
 	return 0;
 }

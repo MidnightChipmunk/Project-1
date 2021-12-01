@@ -9,7 +9,7 @@
 #define _GNU_SOURCE
 
 pthread_t tid[PHILOSOPHER_NUM];
-pthread terminator;
+pthread_t terminator;
 
 int meals_eaten;
 

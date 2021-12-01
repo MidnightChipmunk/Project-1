@@ -81,6 +81,12 @@ void* philosopher(void* phil) {
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 
+		if (terminate_flag == 1) {
+			printf("Philosopher %d is being thrown out :(\n", phil_id);
+			printf("Philosopher %d ate: %d meals", phil_id, meals_eaten);
+			break;
+		}
+
 		pickup_sticks(phil_id);
 
 		printf("Philsopher %d is eating\n", phil_id);
@@ -88,12 +94,21 @@ void* philosopher(void* phil) {
 		eating(sleep_time);
 		meals_eaten++;
 
+		if (terminate_flag == 1) {
+			printf("Philosopher %d is being thrown out :(\n", phil_id);
+			printf("Philosopher %d ate: %d meals", phil_id, meals_eaten);
+			break;
+		}
+
 		printf("Philsopher %d is thinking\n", phil_id);
 		return_sticks(phil_id);
 
 		loop_count++;
-		if (loop_count >= MAX_MEALS)
-			printf("Philosopher %d is done\n", phil_id);
+		if (loop_count >= MAX_MEALS) {
+			printf("Philosopher %d is full.\n", phil_id);
+			printf("Philosopher %d ate: %d meals", phil_id, meals_eaten);
+		}
+
 	}
 }
 
@@ -101,9 +116,7 @@ void* terminator_t(void* sleept) {
 	int i;
 	int* num = (int*)sleept;
 	int term_sleep = *num;
-	printf("Terminator sleeping");
 	sleep(term_sleep);
-	printf("Terminator time!~");
 	terminate_flag = 1;
 }
 

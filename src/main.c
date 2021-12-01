@@ -12,6 +12,23 @@ pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;
 double MAX_EAT_THINK_SLEEP = 10;
 
+int main(int argc, char* argv[]) {
+	printf("begin");
+	int i;
+	MAX_EAT_THINK_SLEEP = atof(argv[1]);
+	printf("After i and MAX_EAT...");
+
+	init();
+	create_philosopher();
+
+	printf("After init and create phil");
+	sleep(atoi(argv[2]));
+	for (i = 0; i < PHILOSOPHER_NUM; i++) {
+		pthread_join(tid[i], NULL);
+	}
+	return 0;
+}
+
 void thinking(int sleept) {
 	sleep(sleept);
 }
@@ -112,21 +129,4 @@ void create_philosopher()
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_create(&tid[i], 0, philosopher, (void *)&thread_id[i]);
 	}
-}
-
-int main(int argc, char* argv[]) {
-	printf("begin");
-	int i;
-	MAX_EAT_THINK_SLEEP = atof(argv[1]);
-	printf("After i and MAX_EAT...");
-
-	init();
-	create_philosopher();
-
-	printf("After init and create phil");
-	sleep(atoi(argv[2]));
-	for (i = 0; i < PHILOSOPHER_NUM; i++) {
-		pthread_join(tid[i], NULL);
-	}
-	return 0;
 }

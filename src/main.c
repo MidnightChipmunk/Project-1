@@ -78,6 +78,7 @@ void* philosopher(void* phil) {
 	int phil_id = *num;
 	int sleep_time;
 	int loop_count = 0;
+	int local_meals = 0;
 
 	while (loop_count < MAX_MEALS && terminate_flag != 1) {
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
@@ -91,9 +92,9 @@ void* philosopher(void* phil) {
 
 		printf("Philsopher %d is eating\n", phil_id);
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
-		meals_eaten += eating(sleep_time);
-		printf("     Phil %d\n     Meals eaten so far: %d\n    Loop count: %d\n",phil_id, meals_eaten, loop_count);
-
+		eating(sleep_time);
+		meals_eaten++;
+		local_meals++;
 		if (terminate_flag == 1) {
 			return_sticks(phil_id);
 			break;
@@ -113,7 +114,7 @@ void* philosopher(void* phil) {
 		printf("Philosopher %d is being thrown out :(\n", phil_id);
 	}
 
-	printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
+	printf("Philosopher %d ate: %d meals\n", phil_id, local_meals);
 }
 
 void* terminator_t(void* sleept) {

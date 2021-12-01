@@ -96,7 +96,7 @@ void* philosopher(void* phil) {
 	}
 }
 
-void terminator(int sleept) {
+void terminator_t(int sleept) {
 	sleep(sleept);
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);
@@ -121,7 +121,7 @@ void create_philosopher()
 		pthread_create(&tid[i], 0, philosopher, (void *)&thread_id[i]);
 	}
 
-	pthread_create(&terminator, 0, terminator, (void*)&terminator_id);
+	pthread_create(&terminator, 0, terminator_t, (void*)&terminator_id);
 }
 
 int main(int argc, char* argv[]) {
@@ -131,7 +131,7 @@ int main(int argc, char* argv[]) {
 	printf("Enter a run time (in seconds): ");
 	scanf("%lf", &sleepy);
 
-	terminator(sleepy);
+	terminator_t(sleepy);
 	init();
 	create_philosopher();
 

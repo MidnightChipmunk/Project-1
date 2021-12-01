@@ -10,7 +10,7 @@
 
 pthread_t tid[PHILOSOPHER_NUM];
 pthread_t terminator;
-bool terminate_flag = false;
+int terminate_flag = 0;
 
 int meals_eaten;
 
@@ -104,7 +104,7 @@ void* terminator_t(void* sleept) {
 	printf("Terminator sleeping");
 	sleep(term_sleep);
 	printf("Terminator time!~");
-	terminate_flag = true;
+	terminate_flag = 1;
 }
 
 void init(){

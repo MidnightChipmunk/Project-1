@@ -3,7 +3,7 @@
 #include <time.h>
 #include "main.h"
 
-pthread_t tid[];
+pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;
 double MAX_EAT_THINK_SLEEP;
 
@@ -87,8 +87,7 @@ void* philosopher(void* phil) {
 	}
 }
 
-void init
-{
+void init(){
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		state[i] = THINKING;

@@ -69,7 +69,8 @@ void return_sticks(int phil) {
 
 void* philosopher(void* phil) {
 	printf("phil run");
-	int phil_id = (int*)phil;
+	int *num = (int*)phil;
+	int phil_id = *num;
 	int sleep_time;
 	int loop_count = 0;
 

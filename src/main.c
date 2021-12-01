@@ -98,8 +98,8 @@ void* philosopher(void* phil) {
 
 void* terminator_t(void* sleept) {
 	int i;
-	int* conv = (int*)sleept;
-	int timeout = conv;
+	int *conv = (int*)sleept;
+	int timeout = *conv;
 	sleep(timeout);
 
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {

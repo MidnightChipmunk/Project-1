@@ -101,7 +101,9 @@ void* terminator_t(void* sleept) {
 	int i;
 	int* num = (int*)sleept;
 	int term_sleep = *num;
+	printf("Terminator sleeping");
 	sleep(term_sleep);
+	printf("Terminator time!~");
 	terminate_flag = true;
 }
 

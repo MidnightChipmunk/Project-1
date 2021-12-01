@@ -9,8 +9,9 @@
 #define _GNU_SOURCE
 
 pthread_t tid[PHILOSOPHER_NUM];
+pthread terminator;
+
 int meals_eaten;
-double MAX_EAT_THINK_SLEEP = 1.0;
 
 void thinking(int sleept) {
 	sleep(sleept);
@@ -95,6 +96,13 @@ void* philosopher(void* phil) {
 	}
 }
 
+void terminator(int sleept) {
+	sleep(sleept);
+	for (i = 0; i < PHILOSOPHER_NUM; i++) {
+		pthread_join(tid[i], NULL);
+	}
+}
+
 void init(){
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
@@ -112,6 +120,8 @@ void create_philosopher()
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_create(&tid[i], 0, philosopher, (void *)&thread_id[i]);
 	}
+
+	pthread_create(&terminator, 0, terminator, (void*)&terminator_id);
 }
 
 int main(int argc, char* argv[]) {
@@ -126,7 +136,6 @@ int main(int argc, char* argv[]) {
 	init();
 	create_philosopher();
 
-	sleep(10);
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);
 	}

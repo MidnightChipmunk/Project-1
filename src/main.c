@@ -115,6 +115,7 @@ void create_philosopher()
 }
 
 int main(int argc, char* argv[]) {
+	printf("begin");
 	int i;
 	MAX_EAT_THINK_SLEEP = atof(argv[1]);
 	printf("After i and MAX_EAT...");

@@ -5,7 +5,7 @@
 
 pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;
-double MAX_EAT_THINK_SLEEP;
+double MAX_EAT_THINK_SLEEP = 10;
 
 void eating(int sleep) {
 	sleep(sleep);
@@ -67,7 +67,7 @@ void* philosopher(void* phil) {
 	int meals_eaten = 0;
 
 	while (loop_count < 5) {
-		sleep_time = (int)((randon() % MAX_THINK_EAT_SLEEP) + 1);
+		sleep_time = (int)((random() % MAX_THINK_EAT_SLEEP) + 1);
 		thinking(sleep_time);
 
 		pickup_sticks(phil_id);
@@ -108,7 +108,7 @@ void create_philosopher()
 
 int main(int argc, char* argv[]) {
 	int i;
-	MAX_EAT_THINK_SLEEP = argv[1];
+	MAX_EAT_THINK_SLEEP = strtod(argv[1]);
 
 	init();
 	create_philosopher();
@@ -118,6 +118,6 @@ int main(int argc, char* argv[]) {
 		pthread_join(tid[i], NULL);
 	}
 
-	sleep()
+	sleep();
 	return 0;
 }

@@ -115,7 +115,7 @@ int main(int argc, char* argv[]) {
 	double sleepy;
 
 	printf("Enter a run time (in seconds): ");
-	scanf("%f", &sleepy);
+	scanf("%lf", &sleepy);
 
 	MAX_EAT_THINK_SLEEP = sleepy;
 

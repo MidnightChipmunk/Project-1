@@ -70,13 +70,13 @@ void* philosopher(void* phil) {
 	int meals_eaten = 0;
 
 	while (loop_count < 5) {
-		sleep_time = (int)(((double)random() % MAX_EAT_THINK_SLEEP) + 1);
+		sleep_time = (int)(((double)random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 
 		pickup_sticks(phil_id);
 
 		printf("Philsopher %d is eating\n", phil_id);
-		sleep_time = (int)(((double)random() % MAX_EAT_THINK_SLEEP) + 1);
+		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		eating(sleep_time);
 		meals_eaten++;
 

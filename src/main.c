@@ -7,11 +7,11 @@ pthread_t tid[PHILOSOPHER_NUM];
 int meals_eaten;
 double MAX_EAT_THINK_SLEEP = 10;
 
-void eating(int sleept) {
+void thinking(int sleept) {
 	sleep(sleept);
 }
 
-void thinking(int sleept) {
+void eating(int sleept) {
 	sleep(sleept);
 }
 

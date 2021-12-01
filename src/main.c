@@ -92,7 +92,7 @@ void* philosopher(void* phil) {
 		printf("Philsopher %d is eating\n", phil_id);
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		meals_eaten += eating(sleep_time);
-		printf("Meals eaten so far: %d\nLoop count: %d", meals_eaten, loop_count);
+		printf("     Phil %d\n     Meals eaten so far: %d\n    Loop count: %d\n",phil_id, meals_eaten, loop_count);
 
 		if (terminate_flag == 1) {
 			return_sticks(phil_id);

@@ -96,9 +96,12 @@ void* philosopher(void* phil) {
 	}
 }
 
-void* terminator_t(int sleept) {
+void* terminator_t(void* sleept) {
 	int i;
-	sleep(sleept);
+	int* conv = (int*)sleept;
+	int timeout = conv;
+	sleep(timeout);
+
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);
 	}

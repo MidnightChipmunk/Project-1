@@ -117,10 +117,12 @@ void create_philosopher()
 int main(int argc, char* argv[]) {
 	int i;
 	MAX_EAT_THINK_SLEEP = atof(argv[1]);
+	printf("After i and MAX_EAT...");
 
 	init();
 	create_philosopher();
 
+	printf("After init and create phil");
 	sleep(atoi(argv[2]));
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);

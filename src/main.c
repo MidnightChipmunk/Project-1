@@ -98,9 +98,9 @@ void* philosopher(void* phil) {
 
 void* terminator_t(void* sleept) {
 	int i;
-	int *conv = (int*)sleept;
-	int timeout = *conv;
-	sleep(timeout);
+	int* num = (int*)sleept;
+	int term_sleep = *num;
+	sleep(term_sleep);
 
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
 		pthread_join(tid[i], NULL);
@@ -135,7 +135,6 @@ int main(int argc, char* argv[]) {
 	printf("Enter a run time (in seconds): ");
 	scanf("%lf", &sleepy);
 
-	terminator_t(sleepy);
 	init();
 	create_philosopher();
 

@@ -7,7 +7,6 @@
 enum{THINKING, HUNGRY, EATING} state[PHILOSOPHER_NUM];
 int thread_id[PHILOSOPHER_NUM];
 
-int terminator_id = 6;
 pthread_cond_t phil_cond[PHILOSOPHER_NUM];
 pthread_mutex_t mutex_lock;
 

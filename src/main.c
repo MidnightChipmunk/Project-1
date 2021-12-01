@@ -11,6 +11,7 @@
 pthread_t tid[PHILOSOPHER_NUM];
 pthread_t terminator;
 int terminate_flag = 0;
+int terminator_id;
 
 int meals_eaten;
 
@@ -106,7 +107,7 @@ void* philosopher(void* phil) {
 
 	}
 
-	if(terminate_flag == 1){}
+	if(terminate_flag == 1){
 		printf("Philosopher %d is being thrown out :(\n", phil_id);
 	}
 

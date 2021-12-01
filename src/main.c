@@ -131,8 +131,7 @@ int main(int argc, char* argv[]) {
 	printf("Enter a run time (in seconds): ");
 	scanf("%lf", &sleepy);
 
-	MAX_EAT_THINK_SLEEP = sleepy;
-
+	terminator(sleepy);
 	init();
 	create_philosopher();
 

@@ -19,8 +19,9 @@ void thinking(int sleept) {
 	sleep(sleept);
 }
 
-void eating(int sleept) {
+int eating(int sleept) {
 	sleep(sleept);
+	return 1;
 }
 
 int get_left(int phil) {
@@ -90,8 +91,7 @@ void* philosopher(void* phil) {
 
 		printf("Philsopher %d is eating\n", phil_id);
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
-		eating(sleep_time);
-		meals_eaten++;
+		meals_eaten += eating(sleep_time);
 
 		if (terminate_flag == 1) {
 			return_sticks(phil_id);

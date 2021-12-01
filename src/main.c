@@ -69,13 +69,11 @@ void return_sticks(int phil) {
 
 void* philosopher(void* phil) {
 	printf("phil run");
-	int *num = (int*)phil;
-	int phil_id = *num;
+	int phil_id = (int*)phil;
 	int sleep_time;
 	int loop_count = 0;
-	int meals_eaten = 0;
 
-	while (loop_count < 5) {
+	while (loop_count < MAX_MEALS) {
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 
@@ -90,9 +88,6 @@ void* philosopher(void* phil) {
 		return_sticks(phil_id);
 
 		loop_count++;
-
-		if (meals_eaten >= MAX_MEALS)
-			break;
 	}
 }
 

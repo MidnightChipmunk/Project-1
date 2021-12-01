@@ -164,5 +164,6 @@ int main(int argc, char* argv[]) {
 		pthread_join(tid[i], NULL);
 	}
 
+	printf("Total meals: %d", meals_eaten);
 	return 0;
 }

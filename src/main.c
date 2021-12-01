@@ -78,14 +78,10 @@ void* philosopher(void* phil) {
 	int loop_count = 0;
 
 	while (loop_count < MAX_MEALS && terminate_flag != 1) {
-		printf("entering while");
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		thinking(sleep_time);
 
 		if (terminate_flag == 1) {
-			printf("Philosopher %d is being thrown out :(\n", phil_id);
-			printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
-			pthread_join(tid[phil_id], NULL);
 			break;
 		}
 
@@ -97,9 +93,6 @@ void* philosopher(void* phil) {
 		meals_eaten++;
 
 		if (terminate_flag == 1) {
-			printf("Philosopher %d is being thrown out :(\n", phil_id);
-			printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
-			pthread_join(tid[phil_id], NULL);
 			break;
 		}
 
@@ -109,15 +102,18 @@ void* philosopher(void* phil) {
 		loop_count++;
 		if (loop_count >= MAX_MEALS) {
 			printf("Philosopher %d is full.\n", phil_id);
-			printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
-			pthread_join(tid[phil_id], NULL);
 		}
 
 	}
+
+	if(terminate_flag == 1){}
+		printf("Philosopher %d is being thrown out :(\n", phil_id);
+	}
+
+	printf("Philosopher %d ate: %d meals\n", phil_id, meals_eaten);
 }
 
 void* terminator_t(void* sleept) {
-	int i;
 	int* num = (int*)sleept;
 	int term_sleep = *num;
 	sleep(term_sleep);
@@ -152,8 +148,14 @@ int main(int argc, char* argv[]) {
 	printf("Enter a run time (in seconds): ");
 	scanf("%lf", &sleepy);
 
+	terminator_id = sleepy;
+
 	init();
 	create_philosopher();
+
+	for (i = 0; i < PHILOSOPHER_NUM; i++) {
+		pthread_join(tid[i], NULL);
+	}
 
 	return 0;
 }

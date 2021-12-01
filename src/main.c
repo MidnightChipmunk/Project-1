@@ -110,7 +110,7 @@ void create_philosopher()
 {
 	int i;
 	for (i = 0; i < PHILOSOPHER_NUM; i++) {
-		pthread_create((int)tid[i], 0, philosopher, (void *)thread_id[i]);
+		pthread_create(&tid[i], 0, philosopher, (void *)&thread_id[i]);
 	}
 }
 

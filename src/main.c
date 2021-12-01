@@ -94,6 +94,7 @@ void* philosopher(void* phil) {
 		meals_eaten++;
 
 		if (terminate_flag == 1) {
+			return_sticks(phil_id);
 			break;
 		}
 
@@ -118,7 +119,10 @@ void* terminator_t(void* sleept) {
 	int* num = (int*)sleept;
 	int term_sleep = *num;
 	sleep(term_sleep);
+
+	pthread_mutex_lock(&mutex_lock);
 	terminate_flag = 1;
+	pthread_mutex_unlock(&mutex_lock);
 }
 
 void init(){

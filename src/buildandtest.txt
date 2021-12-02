@@ -1,24 +1,21 @@
 gcc -pthread -o main main.c
 echo "Running test..."
 echo ""
-echo "10 second test:"
+echo "10 second test: output10.txt"
 echo ""
 ./main 10 > output10.txt
-echo "20 second test:"
+echo "20 second test output20.txt:"
 echo ""
 ./main 20 > output20.txt
-echo "30 second test:"
+echo "30 second test: output30.txt"
 echo ""
 ./main 30 > output30.txt
-echo "40 second test:"
+echo "40 second test: output40.txt"
 echo ""
 ./main 40 > output40.txt
-echo "50 second test:"
+echo "50 second test: output50.txt"
 echo ""
 ./main 50 > output50.txt
-echo "60 second test:"
+echo "60 second test: output60.txt"
 echo ""
 ./main 60 > output60.txt
-echo ""
-echo ""
-echo "Output files are: output10.txt, output20.txt, output30.txt, output40.txt, output50.txt, output60.txt"

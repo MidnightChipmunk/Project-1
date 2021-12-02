@@ -1,0 +1,11 @@
+gcc -pthread -o main main.c
+echo "Running test..."
+echo ""
+echo ""
+./main 10 > output10.txt
+./main 20 > output20.txt
+./main 30 > output30.txt
+./main 40 > output40.txt
+./main 50 > output50.txt
+./main 60 > output60.txt
+echo "Output files are: output10.txt, output20.txt, output30.txt, output40.txt, output50.txt, output60.txt"

@@ -151,7 +151,7 @@ int main(int argc, char* argv[]) {
 	int i;
 	double sleepy;
 
-	sleep = atof(argv[1]);
+	sleepy = atof(argv[1]);
 
 	terminator_id = sleepy;
 

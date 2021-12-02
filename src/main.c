@@ -155,6 +155,7 @@ int main(int argc, char* argv[]) {
 
 	terminator_id = sleepy;
 
+	printf("Running for %lf seconds.\n\n\n", sleepy;)
 	init();
 	create_philosopher();
 

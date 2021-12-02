@@ -5,4 +5,4 @@ git clone https://github.com/MidnightChipmunk/Project-1
 cd Project-1
 cd src
 chmod u+x buildandtest.txt
-./buildandtest.txtcd
+./buildandtest.txt

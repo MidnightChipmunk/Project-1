@@ -1,20 +1,6 @@
-echo "Do you need to download the repository? [y/n]"
-read resp
-if [[ "&resp" == "y" ]]; then
-		cd
-		mkdir MaxwellMaitlandProject1
-		cd MaxwellMaitlandProject1
-		git clone https://github.com/MidnightChipmunk/Project-1
-		git pull
-		cd Project-1
-		cd src
-		chmod u+x test.txt
-		gcc -pthread -o main main.c
-fi
-
-./Project-1/src/main 10 > output10.txt
-./Project-1/src/main 20 > output20.txt
-./Project-1/src/main 30 > output30.txt
-./Project-1/src/main 40 > output40.txt
-./Project-1/src/main 50 > output50.txt
-./Project-1/src/main 60 > output60.txt
+./main 10 > output10.txt
+./main 20 > output20.txt
+./main 30 > output30.txt
+./main 40 > output40.txt
+./main 50 > output50.txt
+./main 60 > output60.txtcd

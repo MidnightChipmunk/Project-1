@@ -12,38 +12,9 @@ if[["&resp" == "y"]]; then
 	gcc -pthread -o main main.c
 fi
 
-echo "Run DiningPhilosphers for 10 seconds? [y/n]"
-read resp
-if[["&resp" == "y"]]; then
-	./main 10 > output10.txt
-fi
-
-echo "Run DiningPhilosphers for 20 seconds? [y/n]"
-read resp
-if[["&resp" == "y"]]; then
-	./main 20 > output20.txt
-fi
-
-echo "Run DiningPhilosphers for 30 seconds? [y/n]"
-read resp
-if[["&resp" == "y"]]; then
-	./main 30 > output30.txt
-fi
-
-echo "Run DiningPhilosphers for 40 seconds? [y/n]"
-read resp
-if[["&resp" == "y"]]; then
-	./main 40 > output40.txt
-fi
-
-echo "Run DiningPhilosphers for 50 seconds? [y/n]"
-read resp
-if[["&resp" == "y"]]; then
-	./main 50 > output50.txt
-fi
-
-echo "Run DiningPhilosphers for 60 seconds? [y/n]"
-read resp
-if[["&resp" == "y"]]; then
-	./main 60 > output60.txt
-fi
+./main 10 > output10.txt
+./main 20 > output20.txt
+./main 30 > output30.txt
+./main 40 > output40.txt
+./main 50 > output50.txt
+./main 60 > output60.txt

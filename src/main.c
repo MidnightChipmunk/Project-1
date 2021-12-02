@@ -90,17 +90,16 @@ void* philosopher(void* phil) {
 
 		pickup_sticks(phil_id);
 
-		printf("Philsopher %d is eating\n", phil_id);
 		sleep_time = (int)((random() % (int)MAX_EAT_THINK_SLEEP) + 1);
 		eating(sleep_time);
 		meals_eaten++;
 		local_meals++;
+
 		if (terminate_flag == 1) {
 			return_sticks(phil_id);
 			break;
 		}
 
-		printf("Philsopher %d is thinking\n", phil_id);
 		return_sticks(phil_id);
 
 		loop_count++;
@@ -164,6 +163,6 @@ int main(int argc, char* argv[]) {
 		pthread_join(tid[i], NULL);
 	}
 
-	printf("Total meals: %d", meals_eaten);
+	printf("Total meals: %d\n\n", meals_eaten);
 	return 0;
 }

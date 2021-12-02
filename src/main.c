@@ -152,7 +152,7 @@ int main(int argc, char* argv[]) {
 	double sleepy;
 
 	printf("Enter a run time (in seconds): ");
-	scanf("%lf", &sleepy);
+	scanf(argv[1], &sleepy);
 
 	terminator_id = sleepy;
 

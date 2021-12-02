@@ -12,9 +12,9 @@ if [[ "&resp" == "y" ]]; then
 		gcc -pthread -o main main.c
 fi
 
-./main 10 > output10.txt
-./main 20 > output20.txt
-./main 30 > output30.txt
-./main 40 > output40.txt
-./main 50 > output50.txt
-./main 60 > output60.txt
+./Project-1/src/main 10 > output10.txt
+./Project-1/src/main 20 > output20.txt
+./Project-1/src/main 30 > output30.txt
+./Project-1/src/main 40 > output40.txt
+./Project-1/src/main 50 > output50.txt
+./Project-1/src/main 60 > output60.txt
